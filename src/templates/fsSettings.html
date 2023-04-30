@@ -1,0 +1,80 @@
+{% import "_includes/forms" as forms %}
+
+{{ forms.autosuggestField({
+    label: "Host"|t('craft-sftp'),
+    id: 'host',
+    name: 'host',
+    suggestEnvVars: true,
+    value: fs.host,
+    errors: fs.getErrors('host'),
+    class: 'sftp-host',
+    required: true
+}) }}
+
+{{ forms.autosuggestField({
+    label: "Port"|t('craft-sftp'),
+    id: 'port',
+    name: 'port',
+    suggestEnvVars: true,
+    value: fs.port,
+    errors: fs.getErrors('port'),
+    class: 'sftp-port',
+    instructions: 'SSH port, the default value is 22'|t('craft-sftp')
+}) }}
+
+{{ forms.autosuggestField({
+    label: "Username"|t('craft-sftp'),
+    id: 'username',
+    name: 'username',
+    suggestEnvVars: true,
+    value: fs.username,
+    errors: fs.getErrors('username'),
+    class: 'sftp-username',
+    required: true
+}) }}
+
+{{ forms.autosuggestField({
+    label: "Password"|t('craft-sftp'),
+    id: 'password',
+    name: 'password',
+    suggestEnvVars: true,
+    value: fs.password,
+    errors: fs.getErrors('password'),
+    class: 'sftp-password',
+    instructions: 'Keep it empty if you want to use SSH private key.'|t('craft-sftp')
+}) }}
+
+{{ forms.autosuggestField({
+    label: "Private key"|t('craft-sftp'),
+    id: 'privateKey',
+    name: 'privateKey',
+    suggestEnvVars: true,
+    value: fs.privateKey,
+    errors: fs.getErrors('privateKey'),
+    class: 'sftp-privateKey',
+    instructions: 'Path to SSH private key, keep it empty if you want to use password.'|t('craft-sftp')
+}) }}
+
+{{ forms.autosuggestField({
+    label: "Passphrase"|t('craft-sftp'),
+    id: 'passphrase',
+    name: 'passphrase',
+    suggestEnvVars: true,
+    value: fs.passphrase,
+    errors: fs.getErrors('passphrase'),
+    class: 'sftp-passphrase',
+    instructions: 'SSH private key passphrases, keep it empty if there is none.'|t('craft-sftp')
+}) }}
+
+{{ forms.autosuggestField({
+    label: "Root"|t('craft-sftp'),
+    id: 'root',
+    name: 'root',
+    suggestEnvVars: true,
+    value: fs.root,
+    errors: fs.getErrors('root'),
+    class: 'sftp-root',
+    instructions: 'The root path of the filesystem, such as /images'|t('craft-sftp')
+}) }}
+
+

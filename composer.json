@@ -1,0 +1,49 @@
+{
+  "name": "xinningsu/craft-sftp",
+  "description": "SFTP integration for Craft CMS, FTP volume type for Craft CMS.",
+  "type": "craft-plugin",
+  "keywords": [
+    "sftp",
+    "cms",
+    "craftcms",
+    "flysystem",
+    "filesystem",
+    "volume",
+    "yii2"
+  ],
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Thomas Su",
+      "email": "deng5765@gmail.com"
+    }
+  ],
+  "minimum-stability": "dev",
+  "prefer-stable": true,
+  "require": {
+    "php": "^8.0.2",
+    "craftcms/cms": "^4.0.0-beta.1",
+    "craftcms/flysystem": "^1.0.0-beta.2",
+    "league/flysystem-sftp-v3": "^3.0.0"
+  },
+  "require-dev": {
+  },
+  "autoload": {
+    "psr-4": {
+      "Sulao\\CraftSftp\\": "src/"
+    }
+  },
+  "extra": {
+    "name": "SFTP Volume",
+    "handle": "craft-sftp"
+  },
+  "config": {
+    "platform": {
+      "php": "8.0.2"
+    },
+    "allow-plugins": {
+      "yiisoft/yii2-composer": true,
+      "craftcms/plugin-installer": true
+    }
+  }
+}

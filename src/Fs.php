@@ -17,7 +17,7 @@ use League\Flysystem\PhpseclibV3\SftpConnectionProvider;
 class Fs extends FlysystemFs
 {
     public string  $host = '';
-    public int     $port = 22;
+    public string  $port = '22';
     public string  $username = '';
     public ?string $password = null;
     public ?string $privateKey = null;
@@ -64,7 +64,7 @@ class Fs extends FlysystemFs
                 'password'   => App::parseEnv($this->password),
                 'privateKey' => App::parseEnv($this->privateKey),
                 'passphrase' => App::parseEnv($this->passphrase),
-                'port'       => (int)App::parseEnv((string)$this->port),
+                'port'       => intval(App::parseEnv($this->port)) ?: 22,
             ]),
             $this->root
         );

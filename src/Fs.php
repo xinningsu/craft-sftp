@@ -7,6 +7,7 @@ namespace Sulao\CraftSftp;
 use Craft;
 use craft\behaviors\EnvAttributeParserBehavior;
 use craft\flysystem\base\FlysystemFs;
+use craft\helpers\App;
 use craft\helpers\Assets;
 use League\Flysystem\Config;
 use League\Flysystem\FilesystemAdapter;
@@ -58,12 +59,12 @@ class Fs extends FlysystemFs
     {
         return new SftpAdapter(
             SftpConnectionProvider::fromArray([
-                'host'       => $this->host,
-                'username'   => $this->username,
-                'password'   => $this->password,
-                'privateKey' => $this->privateKey,
-                'passphrase' => $this->passphrase,
-                'port'       => $this->port,
+                'host'       => App::parseEnv($this->host),
+                'username'   => App::parseEnv($this->username),
+                'password'   => App::parseEnv($this->password),
+                'privateKey' => App::parseEnv($this->privateKey),
+                'passphrase' => App::parseEnv($this->passphrase),
+                'port'       => App::parseEnv((string)$this->port),
             ]),
             $this->root
         );

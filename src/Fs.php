@@ -66,7 +66,7 @@ class Fs extends FlysystemFs
                 'passphrase' => App::parseEnv($this->passphrase),
                 'port'       => intval(App::parseEnv($this->port)) ?: 22,
             ]),
-            $this->root
+            App::parseEnv($this->root)
         );
     }
 
